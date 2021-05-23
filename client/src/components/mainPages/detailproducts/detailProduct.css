@@ -44,4 +44,5 @@
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 2px;
+    box-shadow: 5px 10px 8px rgb(70, 61, 61);
 }
