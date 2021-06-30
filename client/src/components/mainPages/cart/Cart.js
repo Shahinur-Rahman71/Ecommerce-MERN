@@ -1,7 +1,19 @@
 import React, { useContext,useEffect,useState } from 'react';
+import {Link} from 'react-router-dom'
 import { GlobalState } from '../../../GlobalState';
 import axios from 'axios'
-import Bkash from './Bkash';
+//import Bkash from './Bkash';
+
+let style = {
+    size: 'small',
+    color: 'blue',
+    shape: 'rect',
+    label: 'checkout',
+    backgroundColor: "lightblue",
+    borderRadius: "10px",
+    boxShadow: "5px 10px 8px rgb(70, 88, 98)",
+    tagline: false
+}
 
 const Cart = () => {
 
@@ -69,18 +81,18 @@ const Cart = () => {
     }
 
     // for paypal account 
-    const tranSuccess = async(payment) => {
-        //console.log(payment);
-        const {paymentID, address} = payment;
+    // const tranSuccess = async(payment) => {
+    //     //console.log(payment);
+    //     const {paymentID, address} = payment;
 
-        await axios.post('/api/payment', {cart, paymentID, address}, {
-            headers: {Authorization: token}
-        })
+    //     await axios.post('/api/payment', {cart, paymentID, address}, {
+    //         headers: {Authorization: token}
+    //     })
 
-        setCart([])
-        addToCart([])
-        alert("you have successfully placed an order.")
-    }
+    //     setCart([])
+    //     addToCart([])
+    //     alert("you have successfully placed an order.")
+    // }
     
 
     if (cart.length === 0) {
@@ -115,10 +127,11 @@ const Cart = () => {
 
             <div className="total">
                 <h3>Total: ৳ {total}</h3>
-                <Bkash 
+                <Link to="/payment"><h3 style={style}>CheckOut</h3></Link>
+                {/* <Bkash 
                 total={total}
                 tranSuccess={tranSuccess}
-                />
+                /> */}
             </div>
 
         </div>

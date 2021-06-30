@@ -28,16 +28,14 @@ const OrderDetails = () => {
                     <tr>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Postal Code</th>
-                        <th>Country Code</th>
+                        <th>Phone No</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{orderDetails.address.recipient_name}</td>
-                        <td>{orderDetails.address.line1 + " - " + orderDetails.address.city}</td>
-                        <td>{orderDetails.address.postal_code}</td>
-                        <td>{orderDetails.address.country_code}</td>
+                        <td>{orderDetails.name}</td>
+                        <td>{orderDetails.address}</td>
+                        <td>{orderDetails.phone}</td>
                     </tr>
                 </tbody>
             </table>
@@ -58,7 +56,7 @@ const OrderDetails = () => {
                             <td><img src={item.images.url} alt="" /></td>
                             <td>{item.title}</td>
                             <td>{item.quantity}</td>
-                            <td>$ {item.price * item.quantity}</td>
+                            <td>৳ {item.price * item.quantity}</td>
                         </tr>
                         ))
                     }

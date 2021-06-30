@@ -13,7 +13,7 @@ const PaymentSchema = new Schema({
         type: String,
         required: true
     },
-    paymentID: {
+    phone: {
         type: String,
         required: true
     },
