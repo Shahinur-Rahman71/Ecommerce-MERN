@@ -33,7 +33,8 @@ const DetailProduct = () => {
                     
                     <span>৳{detailProduct.price}</span>
                     <p>{detailProduct.description}</p>
-                    <p>{detailProduct.content}</p>
+                    {/* <p>{detailProduct.content}</p> */}
+                    <p>{Math.abs(detailProduct.content - detailProduct.sold)} products are available.</p>
                     <p>Sold: {detailProduct.sold}</p>
                     <Link to="/cart" className="cart"
                     onClick={() => addCart(detailProduct)}>

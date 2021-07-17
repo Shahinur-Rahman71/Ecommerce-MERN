@@ -167,7 +167,7 @@ const CreateProduct = () => {
                 </div>
 
                 <div className="row">
-                    <label htmlFor="content">Content</label>
+                    <label htmlFor="content">Total available products</label>
                     <textarea type="text" name="content" id="content" required
                         value={product.content} rows="5" onChange={ChangeInputHandler} />
                 </div>

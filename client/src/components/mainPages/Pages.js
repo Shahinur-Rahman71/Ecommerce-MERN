@@ -12,6 +12,7 @@ import OrderDetails from './history/OrderDetails';
 import Categories from './categories/Categories';
 import CreateProduct from './createProducts/CreateProduct';
 import Bkash from './cart/Bkash';
+import Profile from './userProfile/Profile';
 
 const Pages = () => {
     const state = useContext(GlobalState);
@@ -35,10 +36,11 @@ const Pages = () => {
             <Route path="/history" exact component={isLogged ? OrderHistory : NotFounds}/>
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFounds}/>
 
-
             <Route path="/payment" exact component={isLogged ? Bkash : NotFounds}/>
-
             <Route path="/cart" exact component={Cart}/>
+
+            <Route path="/profile" exact component={Profile}/>
+
             <Route path="*" exact component={NotFounds}/>
         </Switch>
     );
