@@ -17,7 +17,7 @@ const OrderDetails = () => {
         }
     },[params.id, history])
 
-    //console.log(orderDetails)
+    // console.log(history)
     if(orderDetails.length === 0) return null;
 
     return (

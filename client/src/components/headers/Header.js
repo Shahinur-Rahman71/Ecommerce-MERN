@@ -33,8 +33,11 @@ const Header = () => {
     const loggedRouter = ()=> {
         return(
             <>
-                <li><Link to="/history">History</Link></li>
-                <li style={{fontSize: "20px"}}><Link to="/profile"><i className="fas fa-user-circle"></i></Link></li>
+                {/* <li><Link to="/history">History</Link></li> */}
+                {!isAdmin && <li style={{fontSize: "20px"}}>
+                    <Link to="/profile"><i className="fas fa-user-circle"></i></Link>
+                </li>}
+                
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )

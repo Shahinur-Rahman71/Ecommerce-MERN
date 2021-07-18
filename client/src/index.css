@@ -57,6 +57,9 @@ button{
 /* import for createProducts.css file */
 @import url("./components/mainPages/createProducts/createProducts.css");
 
+/* import for Profile.css file */
+@import url("./components/mainPages/userProfile/Profile.css");
+
 /* ....For Responsive..... */
 @media(max-width: 820px){
   header .logo{

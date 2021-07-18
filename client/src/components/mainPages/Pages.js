@@ -7,7 +7,7 @@ import Cart from './cart/Cart';
 import Products from './products/Products';
 import NotFounds from './utils/not_founds/NotFounds';
 import { GlobalState } from '../../GlobalState';
-import OrderHistory from './history/OrderHistory';
+// import OrderHistory from './history/OrderHistory';
 import OrderDetails from './history/OrderDetails';
 import Categories from './categories/Categories';
 import CreateProduct from './createProducts/CreateProduct';
@@ -33,13 +33,14 @@ const Pages = () => {
             <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFounds}/>
             <Route path="/edit_product/:id" exact component={isAdmin ? CreateProduct : NotFounds}/>
 
-            <Route path="/history" exact component={isLogged ? OrderHistory : NotFounds}/>
-            <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFounds}/>
+            {/* <Route path="/history" exact component={isLogged ? OrderHistory : NotFounds}/>
+            <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFounds}/> */}
 
             <Route path="/payment" exact component={isLogged ? Bkash : NotFounds}/>
             <Route path="/cart" exact component={Cart}/>
 
             <Route path="/profile" exact component={Profile}/>
+            <Route path="/profile/:id" exact component={isLogged ? OrderDetails : NotFounds}/>
 
             <Route path="*" exact component={NotFounds}/>
         </Switch>

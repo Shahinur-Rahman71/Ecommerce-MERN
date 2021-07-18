@@ -30,7 +30,7 @@ const Bkash = () => {
             setCart([])
             //addToCart([])
             alert("you have successfully placed an order.")
-            window.location.href = "/history";
+            window.location.href = "/profile";
 
         } catch (error) {
             alert(error.response.data.msg)
