@@ -7,7 +7,7 @@ const Bkash = () => {
     const state = useContext(GlobalState);
     const [cart, setCart] = state.userAPI.cart;
     const [token] = state.token
-
+    const [design, setDesign] = useState('false');
 
     const [user, setUser] = useState({
         phone: '',
@@ -37,21 +37,40 @@ const Bkash = () => {
         }
     }
 
+    const cashOnOnclick = (e) => {
+        e.preventDefault();
+        setDesign('true')
+    }
+    const bkashOnclick = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div className="login-page">
-            <form onSubmit={paymentSubmit}>
-                <h3 style={{ color: "white"}}>Payment Information</h3><br/>
+            {(design === 'true') ? (
+                <form onSubmit={paymentSubmit}>
+                    <h3 style={{ color: "white"}}>Payment Information</h3><br/>
 
-                <input type="text" name="phone" required placeholder="Phone no"
-                    value={user.phone} onChange={onChangeInputValue} />
+                    <input type="text" name="phone" required placeholder="Phone no"
+                        value={user.phone} onChange={onChangeInputValue} />
 
-                <input type="text" name="address" required placeholder="Present Address"
-                    value={user.address} onChange={onChangeInputValue} />
+                    <input type="text" name="address" required placeholder="Present Address"
+                        value={user.address} onChange={onChangeInputValue} />
 
+                    <div className="row">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+
+            ) : (
                 <div className="row">
-                    <button type="submit">Submit</button>
+                    <form>
+                        <button onClick={bkashOnclick} type="submit" style={{marginLeft: "10px"}}>Pay By Bkash</button>
+                        <button onClick={cashOnOnclick} type="submit" style={{marginLeft: "50px", width: "200px"}}>Cash On Delivery</button>
+                    </form>
+                    
                 </div>
-            </form>
+            )}
         </div>
     );
 };

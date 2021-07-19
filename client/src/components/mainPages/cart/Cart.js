@@ -6,11 +6,11 @@ import axios from 'axios'
 
 let style = {
     size: 'small',
-    color: 'blue',
+    color: 'white',
     shape: 'rect',
     label: 'checkout',
-    backgroundColor: "lightblue",
-    borderRadius: "10px",
+    backgroundColor: "blue",
+    borderRadius: "5px",
     boxShadow: "5px 10px 8px rgb(70, 88, 98)",
     tagline: false
 }
@@ -110,7 +110,7 @@ const Cart = () => {
                             <h2>{product.title}</h2>                            
                             <h3>৳{product.price * product.quantity}</h3>
                             <p>{product.description}</p>
-                            <p>{product.content}</p> 
+                            <br/>
 
                             <div className="amount">
                                  <button onClick={() => decrement(product._id)}> - </button>
