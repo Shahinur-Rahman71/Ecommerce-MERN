@@ -13,6 +13,8 @@ router.get('/refresh_token', userCtrl.refreshToken);
 
 router.get('/infor', auth, userCtrl.getUser );
 
+router.put('/infor/:id', auth, userCtrl.updateUser ); // update user
+
 router.patch('/addcart', auth, userCtrl.addCart);
 
 router.get('/history', auth, userCtrl.history);

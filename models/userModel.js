@@ -22,6 +22,10 @@ const userSchema = new Schema({
     cart: {
         type: Array,
         default: []
+    },
+    images: {
+        type: String,
+        default: 'https://res.cloudinary.com/dboa1jxnr/image/upload/v1629056366/test/user_xgrgts.svg'
     }   
 },{
     timestamps: true

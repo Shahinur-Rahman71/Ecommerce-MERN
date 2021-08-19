@@ -21,7 +21,7 @@ const UserAPI = (token) => {
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
 
                     setCart(res.data.cart)
-                    //console.log(res)
+                    // console.log(res.data.name)
                 } catch (err) {
                     alert(err.response.data.msg);
                 }

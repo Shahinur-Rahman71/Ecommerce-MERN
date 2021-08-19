@@ -103,6 +103,17 @@ const userCtrl = {
             return res.status(500).json({msg: error.message});
         }
     },
+    updateUser: async (req, res) => { // for update user
+        try {
+            const {name, images} = req.body;
+            await Users.findOneAndUpdate({_id: req.params.id},{name, images});
+
+            res.json({msg: 'User updated !!'})
+
+        } catch (error) {
+            return res.status(500).json({msg: error.message});
+        }
+    },
     addCart: async (req, res) => {
         try {
             const user = await Users.findById(req.user.id)
