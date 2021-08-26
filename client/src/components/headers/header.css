@@ -26,6 +26,12 @@ header ul li:hover{
 .menu{
     display: none;
 }
+.profileImages{
+    width: 30px;
+    height: 30px;
+    transform: translateY(10px);
+    border-radius: 50%;
+}
 .cart-icon{
     position: relative;
     margin-right: 20px;

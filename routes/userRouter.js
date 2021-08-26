@@ -9,7 +9,9 @@ router.post('/login', userCtrl.login);
 
 router.get('/logout', userCtrl.logout);
 
-router.get('/refresh_token', userCtrl.refreshToken);
+router.post('/activation', userCtrl.activateEmail);
+
+router.post('/refresh_token', userCtrl.refreshToken);
 
 router.get('/infor', auth, userCtrl.getUser );
 

@@ -13,6 +13,7 @@ import Categories from './categories/Categories';
 import CreateProduct from './createProducts/CreateProduct';
 import Bkash from './cart/Bkash';
 import Profile from './userProfile/Profile';
+import ActivationEmail from './auth/ActivationEmail';
 
 const Pages = () => {
     const state = useContext(GlobalState);
@@ -27,6 +28,8 @@ const Pages = () => {
 
             <Route path="/login" exact component={isLogged ? NotFounds : Login}/>
             <Route path="/register" exact component={isLogged ? NotFounds : Register}/>
+
+            <Route path="/user/activate/:activation_token" component={ActivationEmail} exact />
 
             <Route path="/category" exact component={isAdmin ? Categories : NotFounds}/>
 

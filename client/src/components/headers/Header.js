@@ -52,8 +52,7 @@ const Header = () => {
                 {/* <li><Link to="/history">History</Link></li> */}
                 {!isAdmin ? (
                     <li>
-                        {/* <Link to="/profile"><i className="fas fa-user-circle"></i></Link> */}
-                        <Link to="/profile"><img style={{width: '25px', height: '20px',borderRadius: '50%',position: 'relative'}} src={getUser.images} alt="profile" /></Link>
+                        <Link to="/profile"><img src={getUser.images} className="profileImages" alt="profile"/></Link>
                     </li>) : <li><Link to="/history">History</Link></li>
                 }
 

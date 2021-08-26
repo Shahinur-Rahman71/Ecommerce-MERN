@@ -99,6 +99,7 @@ function Profile() {
 
     return (
         <div className="history-page">
+            <h2 >User Profile</h2>
             <div className="profileImage">
                 <img src={getUser.images} alt="profile_Image" />
                 <span>

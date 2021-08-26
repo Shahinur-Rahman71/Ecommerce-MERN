@@ -18,9 +18,10 @@ const Register = () => {
         e.preventDefault();
         try {
             await axios.post('/user/register', {...user})
-    
-            localStorage.setItem('firstLogin', true)
-            window.location.href = "/";
+        
+            // localStorage.setItem('firstLogin', true)
+            // window.location.href = "/";
+            alert('Registration done !! Please check your email for activation')
             
         } catch (error) {
             alert(error.response.data.msg)
@@ -31,13 +32,13 @@ const Register = () => {
         <div className="login-page">
             <form onSubmit={registerSubmit}>
                 <h2>Signup</h2>
-                <input type="text" name="name" required placeholder="Name" 
+                <input type="text" name="name" placeholder="Name" 
                     value={user.name} onChange={onChangeInputValue}/>
 
-                <input type="email" name="email" required placeholder="Email" 
+                <input type="email" name="email" placeholder="Email" 
                     value={user.email} onChange={onChangeInputValue}/>
 
-                <input type="password" name="password" required placeholder="Password" 
+                <input type="password" name="password" placeholder="Password" 
                 value={user.password} autoComplete="on" onChange={onChangeInputValue}/>
 
                 <div className="row">
