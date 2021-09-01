@@ -38,7 +38,7 @@ const DetailProduct = () => {
                     <p>Sold: {detailProduct.sold}</p>
                     <Link to="/cart" className="cart"
                     onClick={() => addCart(detailProduct)}>
-                        Buy Now
+                        Add to Cart
                     </Link>
                 </div>
             </div>

@@ -13,9 +13,11 @@ function Profile() {
     const [history, setHistory] = state.userAPI.history
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
-    const [editname, setEditname] = useState(true)
+    const [editphone, setEditphone] = useState(true)
+    const [editaddress, setEditaddress] = useState(true)
     const [change, setChange] = useState({
-        name: ''
+        phone: '',
+        address: ''
     });
     const [getUser, setGetuser] = useState([]);
 
@@ -51,14 +53,26 @@ function Profile() {
         setChange({[name]: value })
     }
 
-    const nameButtonHandler = async () => {
-        // e.preventDefault()
+    const phoneButtonHandler = async () => {
         try {
-            if(change.name.length === 0) return setEditname(true)
-            await axios.put(`/user/infor/${getUser._id}`,{...getUser, name: change.name}, {
+            if(change.phone.length === 0) return setEditphone(true)
+            await axios.put(`/user/infor/${getUser._id}`,{...getUser, phone: change.phone}, {
                 headers: {Authorization: token}
             })
-            setEditname(true)
+            setEditphone(true);
+            setChange('');
+            window.location.href = "/profile";
+        } catch (error) {
+            alert(error.response.data.msg)
+        }       
+    }
+    const addressButtonHandler = async () => {
+        try {
+            if(change.address.length === 0) return setEditaddress(true)
+            await axios.put(`/user/infor/${getUser._id}`,{...getUser, address: change.address}, {
+                headers: {Authorization: token}
+            })
+            setEditaddress(true);
             setChange('');
             window.location.href = "/profile";
         } catch (error) {
@@ -112,18 +126,31 @@ function Profile() {
             <div>
                 <h2 style={{ color: "darkblue" }}>
                     {getUser.name}
-                    {editname ? (
-                        <Link to="/profile" onClick={() => setEditname(false)} style={editStyles}>Edit</Link>
+                </h2>
+                <h3 style={{ color: "darkblue", textTransform: 'capitalize', textAlign: 'center' }}>
+                    {`Mobile No: ${getUser.phone}`}
+                    {editphone ? (
+                        <Link to="/profile" onClick={() => setEditphone(false)} style={editStyles}>Edit</Link>
                     ) : (
                         <>
-                            <input onChange={onChangeInputValue} value={change.name} name="name" type="text" style={inputStyles} />
-                            <button type="submit" onClick={nameButtonHandler} style={buttonStyles}>Submit</button>
+                            <input onChange={onChangeInputValue} value={change.phone} name="phone" type="text" style={inputStyles} />
+                            <button type="submit" onClick={phoneButtonHandler} style={buttonStyles}>Update</button>
                         </>
                     )}
-
-                </h2>
-                <h3 style={{ color: "darkblue", textTransform: 'lowercase', textAlign: 'center' }}>
-                    {getUser.email}
+                </h3>
+                <h3 style={{marginTop: '5px', color: "darkblue", textTransform: 'capitalize', textAlign: 'center' }}>
+                    {`Address: ${getUser.address}`}
+                    {editaddress ? (
+                        <Link to="/profile" onClick={() => setEditaddress(false)} style={editStyles}>Edit</Link>
+                    ) : (
+                        <>
+                            <input onChange={onChangeInputValue} value={change.address} name="address" type="text" style={inputStyles} />
+                            <button type="submit" onClick={addressButtonHandler} style={buttonStyles}>Update</button>
+                        </>
+                    )}
+                </h3>
+                <h3 style={{marginTop: '5px', color: "darkblue", textTransform: 'lowercase', textAlign: 'center' }}>
+                    {`Email: ${getUser.email}`}
                 </h3>
             </div>
 

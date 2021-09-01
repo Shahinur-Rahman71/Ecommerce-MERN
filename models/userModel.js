@@ -26,7 +26,13 @@ const userSchema = new Schema({
     images: {
         type: String,
         default: 'https://res.cloudinary.com/dboa1jxnr/image/upload/v1629056366/test/user_xgrgts.svg'
-    }   
+    },
+    phone: {
+        type: String
+    },
+    address: {
+        type: String
+    }  
 },{
     timestamps: true
 });

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { GlobalState } from '../../../GlobalState';
 
@@ -8,11 +8,23 @@ const Bkash = () => {
     const [cart, setCart] = state.userAPI.cart;
     const [token] = state.token
     const [design, setDesign] = useState('false');
-
     const [user, setUser] = useState({
         phone: '',
         address: ''
     });
+
+    useEffect(() => {
+        if (token) {
+            const getHistory = async () => {
+                const userInfo = await axios.get('/user/infor', {
+                    headers: { Authorization: token }
+                });
+                setUser({phone: userInfo.data.phone, address: userInfo.data.address})
+            }
+            getHistory()
+        }
+    }, [token])
+
 
     const onChangeInputValue = (e) => {
         const { name, value } = e.target;

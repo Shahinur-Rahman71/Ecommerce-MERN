@@ -21,10 +21,10 @@ const BtnRender = ({product, deleteProduct}) => {
                     </Link>
                 </>
                 : <>
-                    <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
-                        Buy Now
+                    <Link id="btn_buy" style={{width: '60%'}} to="#!" onClick={() => addCart(product)}>
+                        Add to Cart
                     </Link>
-                    <Link id="btn_view" to={`/detail/${product._id}`}>
+                    <Link id="btn_view" style={{width: '40%'}} to={`/detail/${product._id}`}>
                         View
                     </Link>
                 </>
