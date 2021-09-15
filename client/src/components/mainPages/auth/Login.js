@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {showNotifications} from '../notification/Notifications'
 
 const Login = () => {
     const [user,setUser] = useState({
@@ -22,7 +23,8 @@ const Login = () => {
             window.location.href = "/";
 
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Error', error.response.data.msg, 'danger')
         }
     }
 

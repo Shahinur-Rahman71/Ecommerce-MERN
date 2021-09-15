@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import axios from 'axios';
+import {showNotifications} from '../notification/Notifications'
 
 function Categories() {
     const state = useContext(GlobalState)
@@ -18,19 +19,22 @@ function Categories() {
                 const res = await axios.put(`/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                // alert(res.data.msg)
+                showNotifications('Success', res.data.msg, 'success')
             }else{
                 const res = await axios.post('/api/category', {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                // alert(res.data.msg)
+                showNotifications('Success', res.data.msg, 'success')
             }
             setOnEdit(false)
             setCategory('')
             setCallback(!callback)
             
         } catch (err) {
-            alert(err.response.data.msg)
+            // alert(err.response.data.msg)
+            showNotifications('Warning', err.response.data.msg, 'warning')
         }
     }
 
@@ -45,10 +49,12 @@ function Categories() {
             const res = await axios.delete(`/api/category/${id}`, {
                 headers: {Authorization: token}
             })
-            alert(res.data.msg)
+            // alert(res.data.msg)
+            showNotifications('Success', res.data.msg, 'success')
             setCallback(!callback)
         } catch (err) {
-            alert(err.response.data.msg)
+            // alert(err.response.data.msg)
+            showNotifications('Warning', err.response.data.msg, 'warning')
         }
     }
 

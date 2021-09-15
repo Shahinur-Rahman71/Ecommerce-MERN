@@ -29,7 +29,8 @@
     "googleapis": "^84.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.16",
-    "nodemailer": "^6.6.3"
+    "nodemailer": "^6.6.3",
+    "react-notifications-component": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

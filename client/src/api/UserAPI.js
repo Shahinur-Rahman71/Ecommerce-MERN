@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import {showNotifications} from '../components/mainPages/notification/Notifications'
 
 const UserAPI = (token) => {
 
@@ -23,7 +24,8 @@ const UserAPI = (token) => {
                     setCart(res.data.cart)
                     // console.log(res.data.name)
                 } catch (err) {
-                    alert(err.response.data.msg);
+                    // alert(err.response.data.msg);
+                    showNotifications('Warning', err.response.data.msg, 'warning')
                 }
             }
 
@@ -33,7 +35,7 @@ const UserAPI = (token) => {
 
 
     const addCart = async (product) => {
-        if (!isLogged) return alert('Please login');
+        if (!isLogged) return showNotifications('Warning', "Please login", 'warning');
 
         const check = cart.every(item => {
             return item._id !== product._id
@@ -47,7 +49,8 @@ const UserAPI = (token) => {
             })
 
         } else {
-            alert("This product already added to the cart.")
+            // alert("This product already added to the cart.")
+            showNotifications('Warning', "This product already added to the cart", 'warning')
         }
     }
 

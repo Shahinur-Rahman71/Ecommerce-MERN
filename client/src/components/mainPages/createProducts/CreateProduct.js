@@ -3,6 +3,7 @@ import axios from 'axios';
 import { GlobalState } from '../../../GlobalState';
 import Loading from '../../mainPages/utils/loading/Loading'
 import { useHistory, useParams } from 'react-router-dom'
+import {showNotifications} from '../notification/Notifications'
 
 const initialState = {
     product_id: '',
@@ -77,7 +78,8 @@ const CreateProduct = () => {
             setImages(res.data)
 
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }
     }
 
@@ -92,7 +94,8 @@ const CreateProduct = () => {
             setLoading(false)
             setImages(false)
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }
 
 
@@ -125,7 +128,8 @@ const CreateProduct = () => {
             history.push('/')
 
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Error', error.response.data.msg, 'danger')
         }
     }
 

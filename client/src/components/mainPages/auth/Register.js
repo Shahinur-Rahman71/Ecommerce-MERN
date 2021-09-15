@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {showNotifications} from '../notification/Notifications'
 
 const Register = () => {
     const [user,setUser] = useState({
@@ -21,10 +22,12 @@ const Register = () => {
         
             // localStorage.setItem('firstLogin', true)
             // window.location.href = "/";
-            alert('Registration done !! Please check your email for activation')
+            // alert('Registration done !! Please check your email for activation')
+            showNotifications('Success', 'Registration done !! Please check your email for activation', 'success')
             
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }
     }
 

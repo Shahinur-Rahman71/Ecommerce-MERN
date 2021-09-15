@@ -3,6 +3,7 @@ import { GlobalState } from '../../../GlobalState'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 // import profileIcon from '../../headers/icon/user.svg'
+import {showNotifications} from '../notification/Notifications'
 
 const editStyles = { textTransform: 'lowercase', paddingLeft: '15px', color: 'gray', fontStyle: 'italic', fontSize: '15px' }
 const inputStyles = { height: '27px', width: '200px', borderRadius: '5px', marginLeft: '20px' }
@@ -63,7 +64,8 @@ function Profile() {
             setChange('');
             window.location.href = "/profile";
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }       
     }
     const addressButtonHandler = async () => {
@@ -76,7 +78,8 @@ function Profile() {
             setChange('');
             window.location.href = "/profile";
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }       
     }
     // image uploader
@@ -87,7 +90,7 @@ function Profile() {
             // console.log(file)
 
             if (file.size > 1024 * 1024) // 1mb
-                return alert("File size is too large.")
+                return showNotifications('Warning', "File size is too large", 'warning')
 
             // if (file.type !== 'image/jpeg' && file.type !== 'image/png')
             //     return alert("File format is incurrect")
@@ -107,7 +110,8 @@ function Profile() {
             window.location.href = "/profile";
 
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }
     }
 

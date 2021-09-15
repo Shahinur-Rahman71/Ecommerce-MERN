@@ -5,7 +5,7 @@ import ProductItem from '../utils/productItems/ProductItem';
 import axios from 'axios';
 import Filters from './Filters';
 import LoadMore from './LoadMore';
-
+import {showNotifications} from '../notification/Notifications'
 
 const Products = () => {
     const state = useContext(GlobalState);
@@ -40,7 +40,8 @@ const Products = () => {
             setLoading(false)
             
         } catch (error) {
-            alert(error.response.data.msg)
+            // alert(error.response.data.msg)
+            showNotifications('Warning', error.response.data.msg, 'warning')
         }
     }
 

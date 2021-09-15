@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { GlobalState } from '../../../GlobalState';
-
+import {showNotifications} from '../notification/Notifications'
 
 const Bkash = () => {
     const state = useContext(GlobalState);
@@ -41,7 +41,8 @@ const Bkash = () => {
 
             setCart([])
             //addToCart([])
-            alert("you have successfully placed an order.")
+            // alert("you have successfully placed an order.")
+            showNotifications('Success', 'you have successfully placed an order', 'success')
             window.location.href = "/profile";
 
         } catch (error) {
